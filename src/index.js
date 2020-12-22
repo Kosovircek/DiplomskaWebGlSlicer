@@ -85,7 +85,11 @@ function onResize(){
 }
 window.onresize = onResize;
 	
-	
+
+//rotate the view
+helper.rotateCamera(0.005*30, [1, 0, 0]);
+helper.draw();
+helper.renderToTexture();
 	
 //Mouse events
 var mousePosOld;
@@ -242,6 +246,10 @@ $("#myfile").on("change", function (changeEvent) {
 		//helper.addModel(tempModel.orderedVertecies, tempModel.indecies, tempModel.orderedUvs, tempModel.orderedNormals, "./models/test.png");
 		helper.addModelColor(tempModel.orderedVertecies, tempModel.indecies, tempModel.orderedUvs, tempModel.orderedNormals, "./models/test.png");
 		//models.push(tempModel);
+		
+		helper.rotateCamera(0.005*30, [1, 0, 0]);
+		helper.draw();
+		helper.renderToTexture();
 		
       };
       loader.readAsText(file);
